@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import speech_recognition as sr
 import pyttsx3
 import pywhatkit
@@ -6,7 +7,7 @@ import wikipedia
 import pyjokes
 
 listener = sr.Recognizer()
-engine = pyttsx3.init()
+engine = pyttsx3.init('espeak')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
@@ -23,15 +24,15 @@ def take_command():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            if 'alexa' in command:
-                command = command.replace('alexa', '')
+            if 'deli' in command:
+                command = command.replace('deli', '')
                 print(command)
     except:
         pass
     return command
 
 
-def run_alexa():
+def run_deli():
     command = take_command()
     print(command)
     if 'play' in command:
@@ -57,4 +58,4 @@ def run_alexa():
 
 
 while True:
-    run_alexa()
+    run_deli()
