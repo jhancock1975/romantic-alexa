@@ -5,11 +5,12 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+import pdb
 
 listener = sr.Recognizer()
 engine = pyttsx3.init('espeak')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[11].id)
 
 
 def talk(text):
@@ -18,6 +19,7 @@ def talk(text):
 
 
 def take_command():
+    command  = ''
     try:
         with sr.Microphone() as source:
             print('listening...')
